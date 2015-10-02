@@ -1,11 +1,9 @@
 var x = 0;
 
-function clicker() {
+function Clicker() {
 	
 	document.getElementById("clicker").value = x;
 	x ++;
+	
 };
-
-clicker();
-
 

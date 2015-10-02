@@ -1,20 +1,15 @@
- var clicker = function(start) {
+function Clicker(count) {
+this.count = count;
 
-this.start = start;
-this.increase = totalClicks;
-};
-
-function totalClicks() {
-var sum = value + this.start;
-return sum; 
-
+this.newClick = function() {
+//add 1 for every Click
+this.count += 1;
 };
 
 
-//new clicker (0);
+};
 
-//clicker.math();
+var x = new Clicker(0);
 
-//function(){
-//var clicks = 0 + this.increase;
-//return clicks;
+//coolClicker.count;
+//console.log("the value of coolclicker count is " + coolClicker.count);
