@@ -1,26 +1,17 @@
-.Jumbotron {
+#header {
 	background-color: light blue;
-}
-
-h1 {
-	font-style: italic;
 	text-align: center;
 }
 
+
+
 .container {
-	text-align: right;
 	font-size: 50px;
-	float: right;
+	background-color: grey;
+
 }
 
-.img {
-	width: 50px;
-	height: 50px;
-	margin-top: 100px;
-	
-}
-
-.bottom {
+#footer {
 	;
 
 }
@@ -33,9 +24,9 @@ ul {
 
 }
 
-.button {
-	position: fixed;
+
 	bottom-right: 0;
+	padding-left: auto;
 
 }
 
