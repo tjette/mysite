@@ -7,40 +7,55 @@
 
 </head>
 <body>
-		<div class = "Jumbotron">
+		<div class="Jumbotron" id="header">
+		
 			<h1> Test 1 Website </h1>
 		</div>
 		
-		<div id= "container" class="row">
-		<p> Learning how to code is fun! I am excited to keep learning!</p>
-		
-		<div class = "img">
-			<img src="http://abutaleb.info/wp-content/uploads/2015/06/Java-Script-Logo.png">
+		<div class="container" id="maincontent">
+		<div class="row">
+		<div class="col-xs-7">
+		<img src="http://abutaleb.info/wp-content/uploads/2015/06/Java-Script-Logo.png">
 		</div>
-		</div>	
+		<div class="col-xs-5">
+		<p> Learning how to code is fun! I am excited to keep learning!</p>
+		</div>
+		</div>
+		</div>
 
-		<div id="footer" class="row">
-			<ul> <p>Code experience</p>
+	</div>
+	
+			
+
+	<div class="footer">
+		<div class="row">
+			<div class="col-xs-4">
+			<ul><p>Code Experience</p>
 				<li>HTML</li>
 				<li>CSS</li>
 				<li>JavaScript</li>
 			</ul>
-
-			<span class = "glyphicon glyhpicon-thumbs-up"></span>
-
+			</div>
+			<div class="col-xs-3"><span class = "glyphicon glyhpicon-thumbs-up"></span>
+			</div>
+			<div class="col-xs-5">
+			
+			<button type= "button" onClick ="clicker()">Click Me!</button>
+			<div><input type ="text" id="clicker" name= sum></div>
+			</div>
+		</div>
+	</div>
+			
 			
 		
-		  
-			<button name= "button" onClick ="clicker()">Click Me!</button>
-
-			<input type = "text" name= sum>
-		</div>
 
 
 
-<script src="app.js"></script
-<script src="click.js"></script
+
 <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="click.js"></script>
+<script src="app.js"></script>
+
 </body>
 </html>

@@ -1,16 +1,20 @@
- var a = function(start, counter) {
+ var clicker = function(start) {
 
 this.start = start;
-this.counter = counter;
-this.math = function;
-}
+this.increase = totalClicks;
+};
 
-function countSum(){
-var clicks = 0 + this.counter;
-return clicks;
+function totalClicks() {
+var sum = value + this.start;
+return sum; 
 
-}
+};
 
-var clicker = new a (0, 1);
 
-clicker.math();
+//new clicker (0);
+
+//clicker.math();
+
+//function(){
+//var clicks = 0 + this.increase;
+//return clicks;

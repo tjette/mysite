@@ -1,9 +1,11 @@
-var clicker = 0;
+var x = 0;
 
-function clickme() {
-	clicker += 1;
-	document.getElementById("clicker").innerHTML = clicks;
+function clicker() {
+	
+	document.getElementById("clicker").value = x;
+	x ++;
 };
 
-clicks();
+clicker();
+
 
