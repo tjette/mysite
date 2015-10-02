@@ -1,7 +1,9 @@
-int clicks = 0;
+var clicker = 0;
 
-function click() {
-	clicks += 1;
-	document.getElementByID("clicks").innerHTML = clicks;
+function clickme() {
+	clicker += 1;
+	document.getElementById("clicker").innerHTML = clicks;
 };
+
+clicks();
 
