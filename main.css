@@ -1,8 +1,15 @@
 #header {
-	background-color: light blue;
+	background-color: lightblue;
 	text-align: center;
+
+}
+#header h1 {
+	color: yellow;
 }
 
+#header p {
+	font-size: 70px;
+}
 
 
 .container {
@@ -11,8 +18,8 @@
 
 }
 
-#footer {
-	;
+#footer p {
+	font-size: 50px;
 
 }
 
