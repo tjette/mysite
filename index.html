@@ -2,71 +2,104 @@
 <html>
 <head> 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text.css" href="main.css">
+	<link rel="stylesheet" href="main.css">
 
 
 </head>
 <body>
-	<div class="Jumbotron" id="header">
-		
-		<h1> Test 1 Website </h1>
-		
-		<div class="container" id="maincontent">
+	<div class="navbar navbar-default navbar-static-top">
+		<div class="container">	
+			<div class="header">
+
+				<a href="index.html" class="navbar-brand" class=>Travis Jette's Web Development Portfolio</a>
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a href="#" data-toggle="dropdown">About Me<span class="caret"></span></a>
+
+						<ul class="dropdown-menu">
+							<li><a href="about.html">My Story</a></li>
+							<li><a href="contact.html">Contact</a></li>
+							<li><a href="blog.html">Blog</a></li>
+							<li><a href="https://github.com/tjette">Git Hub</a></li>
+							<li><a href="https://twitter.com/travisjette">Twitter</a></li>
+							<li><a href="https://www.linkedin.com/pub/travis-jette/20/101/86a">LinkedIn</a></li>
+						</ul>
+					</li>
+
+					<li><a href="projects.html">Projects</a></li>
+					<li><a href="blog.html">Blog</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+		<div class="container">
+			<div class="main">
 			<div class="row">
-				<div class="col-xs-2">
-					<img src="http://abutaleb.info/wp-content/uploads/2015/06/Java-Script-Logo.png">
+
+			<div class="col-xs-4">
+				<div class="river">
+					<img src="http://www.troutbum2.com/skin/troutbum/images/2column/greenriver.jpg">
 				</div>
-			
-				<div class="col-xs-offset-4">
-				<div class="dropdown">
-					<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
-					<ul class="dropdown-menu">
+			</div>
+			<div class="col-xs-4">
+				<div class="view">
+
+					<img src="">
+				</div>
+			</div>
+			</div>
+			</div>
+		</div>
+
+
+
+
+
+
+
+	<div class="container">
+		<div class="footer">
+			<div class="row">
+
+				<div class="col-xs-2">
+					<h4>Links</h4>
+					<ul class="list-unstyled">
+						<li>Home</li>
 						<li><a href="#">HTML</a></li>
 						<li><a href="#">CSS</a></li>
 						<li><a href="#">JavaScript</a></li>
+						<li>Github</li>
 					</ul>
 				</div>
+
+				<div class="col-xs-2">
+					<h4>Contact</h4>
+					<ul class="list-unstlyed">
+						<li>Phone: 406-546-9059</li>
+						<li><a href="travisjette@gmail.com">Email</a></li>
+						<li><a href="https://github.com/tjette">Git Hub</a></li>
+						<li><a href="https://www.linkedin.com/pub/travis-jette/20/101/86a">
+							LinkedIn</a></li>
+						</ul>
+					</div>
+
+					<div class="col-xs-2">
+
+						<button class="btn my-button btn-default" type= "button" onClick ="Clicker();">Click Me!</button></div>
+
+						<div class="col-xs-2">
+							<input type ="text" id="clicker"/>
+						</div>
+
+					</div>
 				</div>
-				<div class="col-xs-6">
-					<p> Learning how to code is fun! I am excited to keep learning!</p>
-				</div>
-			
 			</div>
-		</div>
-	</div>
-	
 
 
-	<div class="footer">
-		<div class="row">
-			<div class="col-xs-4">
-				<ul><p>Code Experience</p>
-					<li>HTML</li>
-					<li>CSS</li>
-					<li>JavaScript</li>
-				</ul>
-			</div>
-			<div class="col-xs-3"><span class ="glyphicon glyhpicon-thumbs-up"></span>
-			</div>
-			<div class="col-xs-5">
+			<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+			<script src="click.js"></script>
+			<script src="app.js"></script>
 
-				<button class="btn my-button btn-default" type= "button" onClick ="Clicker();">Click Me!</button>
-				
-				<div><input type ="text" id="clicker"/></div>
-			</div>
-		</div>
-	</div>
-
-
-
-
-
-
-
-	<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	<script src="click.js"></script>
-	<script src="app.js"></script>
-
-</body>
-</html>
+		</body>
+		</html>
