@@ -1,0 +1,78 @@
+body {
+background-color: cadetblue;
+padding: 5px 5px 5px 5px;
+}
+	
+.navbar {
+border-color: black;
+border-width: 2px;
+}  
+
+.headerimage {
+background-image: url('http://www.re-mg.com/images/home/miz1.gif');
+background-repeat: no-repeat;
+background-size: 100%;
+}  
+#header  {
+	background-color: cadetblue;
+}
+
+/*.container img {
+	display: block;
+	max-width: 50%;
+	height: auto;
+	padding-top: 20px;
+}
+*/
+
+.my-button {
+	border: 3px solid blue;
+}
+
+.river img{
+	
+}
+
+.blogheader {
+position: relative;
+}
+
+.blog-header img {
+	height: 200px;
+	max-width: 100%;
+}
+
+.blog-header h1 {
+	font-size: 100px;
+	text-align: center;
+}
+
+
+  .blog-title {
+	
+	
+}
+
+
+.main p {
+	font-size: 50px;
+
+}
+.websites img {
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+.footer {
+	border-radius: 10px;
+}
+.blog {
+	background: beige;
+
+}
+
+
+
+
+
+
+
