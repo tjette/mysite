@@ -1,6 +1,3 @@
-// var mongoose = require('mongoose');
-// mongoose.connect('mongodb://localhost/blogs');
-
 var mongoose = require('mongoose');
 var uriUtil = require('mongodb-uri');
 
