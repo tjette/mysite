@@ -2,95 +2,88 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
-router.use(bodyParser.urlencoded({ extended: true }));
+var Blog       = require('../model/blog');
+router.use(bodyParser.urlencoded({ extended: true }))
 
-var validBlogs = [];
+var validBlog = [];
 
 function filterByTitle(obj) {
  if ('title' in obj && typeof(obj.title) === 'string') {
-   validBlogs.push(obj);
+   validBlog.push(obj);
    return true;
- } else {
+  } else {
    return false;
- }
+  }
 };
 
-
-
-router.use(function(req, res, next) {
-  console.log("Something is happening");
-  next();
-});
-
-router.routes('/blog')
-
-/* GET All Blogs */
-
- .get(function(req, res) {
-   mongoose.model('blog').find({}, function(err, blog){
+router.route('/')
+  .get(function(req, res) {
+    mongoose.model('Blog').find({}, function(err, blog){
      if(err){
        return console.log(err);
      } else {
        var arrByTitle = blog.filter(filterByTitle);
        res.json(arrByTitle);
      }
-   });
- })
+    });
+  })
 
- .post(function(req, res){
-   var title = req.body.title;
-   var body = req.body.body;
+  .post(function(req, res){
+    var blog = new Blog();
+    blog.title = req.body.title;
+    blog.body = req.body.body;
+    blog.save(function(err, blog){
+      if(err){
+        res.send("houston we have a problem")
+      } else {
+        console.log("New blog named " + blog + "created!");
+        res.redirect("http://localhost:3000/blog.html");
+        // res.json(blog);
+      }
+    })
+  });
 
-   mongoose.model('blog').create({
-     title: title,
-     body: body
-   }, function(err, blog){
-     if(err){
-       res.send("houston we have a problem")
-     } else{
-       console.log("New blog named " + blog + "created!");
-       res.send(blog);
-     }
-   });
- });
+router.route('/:id')
+  .get(function(req, res) {
+    mongoose.model('Blog').findById({
+      _id: req.params.id
+    }, function(err, blog) {
+      if (err)
+        res.send(err);            
+      res.json(blog);
+    });
+  })
 
-
- router.route('/:id')
-   .get(function(req, res) {
-       mongoose.model('blog').findById({
-           _id: req.params.id
-       }, function(err, blog) {
-           if (err)
-               res.send(err);
-
-           res.json(blog);
-       });
-   })
-
-   // update the bear with this id (accessed at PUT http://localhost:8080/api/bears/:id)
+    // update with this id (accessed at PUT http://localhost:8080/api/bears/:id)
    .put(function(req, res) {
-       mongoose.model('blog').findById({
-           _id: req.params.id,
-           title: req.params.title,
-           body: req.params.body
-       }, function(err, blog) {
-           if (err)
-               res.send(err);
+      Blog.findById(req.params.id, function(err, blog) {
+        if (err)
+          res.send(err);
 
-           res.json(blog);
-           res.send("blog was updated")
-       });
-   })
-   // delete the bear with this id (accessed at DELETE http://localhost:8080/api/blogs/:id)
+        console.log(req.body.title + " : " + req.body.body);
+        blog.title = req.body.title;  // update the blog info
+        blog.body = req.body.body;
+        console.log(JSON.stringify(blog));
+
+        // save the bear
+        blog.save(function(err) {
+          if (err)
+            res.send(err);
+
+          res.json({ message: 'Blog was updated!' });
+        });
+      });
+    })
+
+   // delete with this id (accessed at DELETE http://localhost:8080/api/blogs/:id)
    .delete(function(req, res) {
-       mongoose.model('blog').remove({
+       mongoose.model('Blog').remove({
            _id: req.params.id
        }, function(err, blog) {
            if (err)
                res.send(err);
-
-           res.json({ message: 'Successfully deleted' });
+               res.json({ message: 'Successfully deleted' });
        });
    });
 
-module.exports = router;
+module.exports = router; 

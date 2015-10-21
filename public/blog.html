@@ -34,34 +34,77 @@
 	</div>
 	
 	<div class="container">
-	<div class= "blog-header">
-		<div class="row">
-			<div class="col-xs-12">
-			<img src="http://www.clker.com/cliparts/G/j/T/k/Z/W/notepad-md.png" class=".img-responsive" alt="Responsive image">
-			<!-- <span class="glyphicons glyphicons-pencil"></span> -->
-			
-				<h1 class="blog-title">Blog</h1>
-				
+		<div class= "blog-header">
+			<div class="row">
+				<div class="col-xs-12">
+					<img src="http://www.clker.com/cliparts/G/j/T/k/Z/W/notepad-md.png" class="center-block" alt="Responsive image">
+					
+
+					<h1 class="blog-title">Blog</h1>
+
+				</div>
 			</div>
 		</div>
-		</div>
+	</div>
+
+	
+		<div class="row"> 
+			<div class="col-xs-2 leftSideBar">
+				<ul class="nav navbar-nav navbar-left">
+					<li>a</li>
+					<li></li>
+
+				</ul>
+
+			</div>
+
+			
+			<div class="col-xs-10 col-xs-offset-2 rightSideBar">
+				<ul class="nav navbar-nav navbar-right">
+					<li>a<li>
+				</ul>
+
+			</div>
 		</div>
 	
-	<div class="blog background">
-	<div class="form-group">
-		<label for="entry">Blog Entry:</label>
-		<textarea class="form-control" rows="15" id="comment"></textarea>
-		<button type="submit" class="btn btn-default">Submit</button>
 
+	<div class="container col-xs-12">
+		<div class="row">
+			<form action="http://localhost:3000/api/blog" method="POST" role="form">
+				<legend>Blog Entry</legend>
+
+				<div class="form-group">
+				<label for="">Blog Title</label>
+					<input type="text" name="title" class="form-control" id="" placeholder="Blog Title">
+				</div>
+
+				<div class="form-group">
+					<label for="">Blog Entry</label>
+					<textarea type="text" name="body" class="form-control" id="" placeholder="Blog Entry" rows="5"></textarea>
+					
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+
+		</div>
 	</div>
 
-	<div class="form-group">
-		<label for="entry">Blog Entry:</label>
-		<textarea class="form-control" rows="15" id="comment"></textarea>
-		<button type="submit" class="btn btn-default">Submit</button>
+	<div class="container">
+		<div class="row">
+			<h2>
+				List of Blogs
+				<ul id="blog-list">
+				</ul>
+			</h2>
+		</div>
+	
+	
+	
+			
+	</div>
 
-	</div>
-	</div>
+		
+
 	
 	<div class="container">
 		<div class="footer">
@@ -95,11 +138,13 @@
 			</div>
 		</div>
 
-			<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-			<script src="click.js"></script>
-			<script src="app.js"></script>
-
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/1.1.1/js/md5.js"></script>
+        <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+   		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
+   		<script type="text/jsx" src="app.js"></script>
 
 
 	</body>
