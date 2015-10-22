@@ -38,7 +38,7 @@ router.route('/')
       } else {
         console.log("New blog named " + blog + "created!");
         res.redirect("/blog.html");
-        // res.json(blog);
+       
       }
     })
   });
