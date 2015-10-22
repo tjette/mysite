@@ -37,7 +37,7 @@ router.route('/')
         res.send("houston we have a problem")
       } else {
         console.log("New blog named " + blog + "created!");
-        res.redirect("http://localhost:3000/blog.html");
+        res.redirect("/blog.html");
         // res.json(blog);
       }
     })

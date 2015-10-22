@@ -13,4 +13,5 @@ app.use('/api/blog', blogRoutes);
 app.get('/', function(req, res){
     res.readFile('index.html')
 });
-app.listen(3000); 
+var port = process.env.PORT || 8080;
+app.listen(port); 
