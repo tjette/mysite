@@ -3,18 +3,20 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var Blog       = require('../model/blog');
+
+
 router.use(bodyParser.urlencoded({ extended: true }))
 
-var validBlog = [];
+// var validBlog = [];
 
-function filterByTitle(obj) {
- if ('title' in obj && typeof(obj.title) === 'string') {
-   validBlog.push(obj);
-   return true;
-  } else {
-   return false;
-  }
-};
+// function filterByTitle(obj) {
+//  if ('title' in obj && typeof(obj.title) === 'string') {
+//    validBlog.push(obj);
+//    return true;
+//   } else {
+//    return false;
+//   }
+// };
 
 router.route('/')
   .get(function(req, res) {
@@ -22,25 +24,29 @@ router.route('/')
      if(err){
        return console.log(err);
      } else {
-       var arrByTitle = blog.filter(filterByTitle);
-       res.json(arrByTitle);
+       
+       res.json(blog);
      }
     });
   })
 
   .post(function(req, res){
-    var blog = new Blog();
-    blog.title = req.body.title;
-    blog.body = req.body.body;
-    blog.save(function(err, blog){
+    var title = req.body.title;
+    var body = req.body.body;
+    mongoose.model('Blog').create({
+      title: title,
+      body: body
+    },
+
+    function(err, blog){
       if(err){
         res.send("houston we have a problem")
       } else {
         console.log("New blog named " + blog + "created!");
-        res.redirect("/blog.html");
-       
+        // res.redirect("/blog.html");
+       res.send(blog);
       }
-    })
+    });
   });
 
 router.route('/:id')

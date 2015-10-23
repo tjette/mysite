@@ -67,40 +67,16 @@
 			</div>
 		</div>
 	
-
-	<div class="container col-xs-12">
-		<div class="row">
-			<form action="/api/blog/" method="POST" role="form">
-				<legend>Blog Entry</legend>
-
-				<div class="form-group">
-				<label for="">Blog Title</label>
-					<input type="text" name="title" class="form-control" id="" placeholder="Blog Title">
-				</div>
-
-				<div class="form-group">
-					<label for="">Blog Entry</label>
-					<textarea type="text" name="body" class="form-control" id="" placeholder="Blog Entry" rows="5"></textarea>
-					
-				</div>
-				<button type="submit" class="btn btn-primary">Submit</button>
-			</form>
-
-		</div>
-	</div>
-
 	<div class="container">
 		<div class="row">
 			<h2>
-				List of Blogs
-				<ul id="blog-list">
+				
+				<ul id="post-blog">
+
 				</ul>
 			</h2>
+			<div id="blog-list"></div>
 		</div>
-	
-	
-	
-			
 	</div>
 
 		
@@ -144,6 +120,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
    		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
+   		<script type="text/jsx" src="blogForm.js"></script>
    		<script type="text/jsx" src="app.js"></script>
 
 
