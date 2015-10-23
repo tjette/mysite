@@ -22,7 +22,7 @@ module.exports = function(app, passport) {
     app.get('/login', function(req, res) {
 
         // render the page and pass in any flash data if it exists
-        res.readFile('login.html', { message: req.flash('loginMessage') }); 
+        res.sendFile('login.html', { message: req.flash('loginMessage') }); 
     });
 
     // process the login form
@@ -35,7 +35,7 @@ module.exports = function(app, passport) {
     app.get('/signup', function(req, res) {
 
         // render the page and pass in any flash data if it exists
-        res.readFile('signup.html', { message: req.flash('signupMessage') });
+        res.sendFile('signup.html', { message: req.flash('signupMessage') });
     });
 
     // process the signup form
@@ -47,7 +47,7 @@ module.exports = function(app, passport) {
     // we will want this protected so you have to be logged in to visit
     // we will use route middleware to verify this (the isLoggedIn function)
     app.get('/profile', isLoggedIn, function(req, res) {
-        res.readFile('profile.html', {
+        res.sendFile('profile.html', {
             user : req.user // get the user out of session and pass to template
         });
     });
