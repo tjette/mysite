@@ -16,11 +16,12 @@ var BlogForm = React.createClass({
   }
 
   var data = ({title: title, body: body});
+
   $.ajax({
     url: this.props.url,
     dataType: 'json',
     type: 'POST',
-    data:data,
+    data: data,
     success: function(response) {
       console.log("inside success", data, response)
       document.location='/blog.html'
