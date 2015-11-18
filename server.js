@@ -19,6 +19,7 @@ var blogModel = require('./model/blog');
 var blogRoutes = require('./routes/blog');
 var commentModel = require('./model/comment');
 var commentRoutes = require('./routes/commentRoutes');
+var gitHubRoutes = require('./routes/gitHubRoutes');
 
 require('./config/passport')(passport); // pass passport for configuration
 
@@ -40,6 +41,7 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 require('./routes/userRoutes.js')(app, passport); 
 app.use('/api/blog', blogRoutes);
 app.use('/api/comments', commentRoutes);
+app.use('/api/github', gitHubRoutes);
 app.get('/', function(req, res){
     res.readFile('index.html')
 });

@@ -12,6 +12,11 @@ module.exports = {
     'webpack-hot-middleware/client',
     './client/blogForm'
     ],
+
+    index: [
+    'webpack-hot-middleware/client',
+    './client/index'
+    ]
   },
   output: {
     path: path.join(__dirname, 'static'),
