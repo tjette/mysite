@@ -17,6 +17,7 @@ var app = express();
 
 var blogModel = require('./model/blog');
 var blogRoutes = require('./routes/blog');
+var commentModel = require('./model/comment');
 var commentRoutes = require('./routes/commentRoutes');
 
 require('./config/passport')(passport); // pass passport for configuration
@@ -38,12 +39,17 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 // routes ======================================================================
 require('./routes/userRoutes.js')(app, passport); 
 app.use('/api/blog', blogRoutes);
+app.use('/api/comments', commentRoutes);
 app.get('/', function(req, res){
     res.readFile('index.html')
 });
 
 app.get('/', function(req, res){
 	res.sendFile('blog.html');
+});
+
+app.get('/', function(req, res){
+	res.sendFile('postblog.html')
 });
 var port = process.env.PORT || 8080;
 app.listen(port); 

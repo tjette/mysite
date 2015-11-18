@@ -4,10 +4,10 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var Comment = require('../model/comment');
 
-router.use(bodyParser.urlencoded({ extended: true }))
+module.exports = function(app, passport) {
 
-router.route('/')
-  .get(function(req, res) {
+
+  app.get('/api/comment/', function(req, res) {
     mongoose.model('Comment').find({}, function(err, comment){
      if(err){
        return console.log(err);
@@ -18,7 +18,7 @@ router.route('/')
     });
   })
 
-  .post(function(req, res){
+  app.post('/api/comment/', function(req, res){
     var author = req.body.author;
     var body = req.body.body;
     mongoose.model('Comment').create({
@@ -37,9 +37,17 @@ router.route('/')
     });
   });
 
-router.route('/:id')
+app.get('/api/comment/:id', function(req, res) {
+		mongoose.model('Comment').findById({
+			_id: req.params.id
+		}, function(err, comment) {
+			if(err)
+				res.send(err);
+				res.json(comment);
+		});
+	})
 
-.delete(function(req, res) {
+app.delete('/api/comment/:id', function(req, res) {
        mongoose.model('Comment').remove({
            _id: req.params.id
        }, function(err, comment) {
@@ -49,4 +57,4 @@ router.route('/:id')
        });
    });
 
-module.exports = router; 
+}

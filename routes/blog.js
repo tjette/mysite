@@ -7,17 +7,6 @@ var Blog       = require('../model/blog');
 
 router.use(bodyParser.urlencoded({ extended: true }))
 
-// var validBlog = [];
-
-// function filterByTitle(obj) {
-//  if ('title' in obj && typeof(obj.title) === 'string') {
-//    validBlog.push(obj);
-//    return true;
-//   } else {
-//    return false;
-//   }
-// };
-
 router.route('/')
   .get(function(req, res) {
     mongoose.model('Blog').find({}, function(err, blog){

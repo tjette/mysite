@@ -55,6 +55,41 @@ render: function() {
 }
 });
 
+// var Manage = React.createClass({
+
+//   update: function(id){
+//     var id = id;
+
+//   var title = React.findDOMNode(this.refs.title).value.trim(); 
+//   var body = React.findDOMNode(this.refs.body).value.trim();
+
+//   if(!name){
+//       return;
+//     }
+
+//   var data = ({title: title, body: body});
+//    $.ajax({
+//       url: this.props.url + id,
+//       dataType: 'json',
+//       data: data,
+//       type:'PUT',
+//       success: function(response){
+//         console.log("posting data!", data, response)
+//         document.location='/enter_beer'
+//       }.bind(this),
+//       error: function(xhr, status, err){
+//         console.log("not posting data!")
+//         console.error(this.props.url, status, err.toString());
+//       }.bind(this)
+//     })
+//   },
+
+//  getInititalState: function() {
+  
+//  } 
+
+// })
+
 
 React.render(<BlogForm url="/api/blog"/>, document.getElementById('post-blog'));
 
