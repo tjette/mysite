@@ -1,7 +1,5 @@
-
-
-
-
+var React = require('react');
+var BlogForm = require('./BlogForm');
 
 
 var BlogForm = React.createClass({
@@ -85,11 +83,12 @@ render: function() {
 //   },
 
 //  getInititalState: function() {
-  
+
 //  } 
 
 // })
 
+module.exports = BlogForm;
 
 React.render(<BlogForm url="/api/blog"/>, document.getElementById('post-blog'));
 

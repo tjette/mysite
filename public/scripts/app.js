@@ -1,3 +1,6 @@
+var React = require('react');
+var BlogList = require('./BlogList');
+
 var BlogList = React.createClass({
     render: function() {
       var blogData = this.props.data.map(function(blog){
@@ -55,7 +58,7 @@ componentDidMount: function() {
     }
 });
 
-
+module.exports = BlogList;
 
 React.render(<BlogBox url="/api/blog/"/>, document.getElementById("blog-list"));
 
