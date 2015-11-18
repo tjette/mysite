@@ -17,6 +17,7 @@ var app = express();
 
 var blogModel = require('./model/blog');
 var blogRoutes = require('./routes/blog');
+var commentRoutes = require('./routes/commentRoutes');
 
 require('./config/passport')(passport); // pass passport for configuration
 
