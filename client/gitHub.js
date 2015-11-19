@@ -9,13 +9,13 @@ var GitHubList = React.createClass({
 			return(
 				<div>
 					<p>{c.message}</p>
-					<p>{c.url}</p>
+					
 				</div>
 				)
 		})
 	}
 		return(
-        <div className="col-md-4">
+        
           <div className="panel panel-default gitub-box">
             <h3 className="panel-header"><i className="fa fa-code-fork">
               </i> {git.name}</h3>
@@ -25,13 +25,13 @@ var GitHubList = React.createClass({
             <div className="panel-footer">
             <p> {git.timeStamp}</p>
             </div>
-          </div>
-        </div>
-      )
+            </div>
+       
+        )
     });
 		return(
-			<div>
-			<article>{gitHubData}</article>
+			<div className="col-md-4">
+			<span>{gitHubData}</span>
 			</div>
 		)
 	}

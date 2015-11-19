@@ -1,5 +1,9 @@
-var React = require('react');
-var CommentBox = require('./CommentBox');
+// - CommentBox
+//   - CommentList
+//     - Comment
+//   - CommentForm
+
+//In Blog add area where users can make comments
 
 var CommentBox = React.createClass({
 
@@ -98,5 +102,4 @@ var CommentForm = React.createClass({
   }
 });
 
-module.exports = CommentBox;
-
+React.render(<CommentBox url="/api/comment"/>, document.getElementById('comment'));
