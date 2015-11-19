@@ -4,16 +4,31 @@ var React = require('react');
 var GitHubList = React.createClass({
 	render: function(){
 	var gitHubData = this.props.data.map(function(git){
+		if(git.coms) {
+		var commitInfo = git.coms.map(function(c){
+			return(
+				<div>
+					<p>{c.message}</p>
+					<p>{c.url}</p>
+				</div>
+				)
+		})
+	}
 		return(
-			<div>
-				<ul>
-					<li>{"id": id}</li> 
-					<li>{"type": type}</li> 
-					<li>{"repo":repo}</li>
-				</ul>
-			</div>
-		)
-	});
+        <div className="col-md-4">
+          <div className="panel panel-default gitub-box">
+            <h3 className="panel-header"><i className="fa fa-code-fork">
+              </i> {git.name}</h3>
+            <div className="panel-body">
+               {commitInfo}
+            </div>
+            <div className="panel-footer">
+            <p> {git.timeStamp}</p>
+            </div>
+          </div>
+        </div>
+      )
+    });
 		return(
 			<div>
 			<article>{gitHubData}</article>
@@ -30,8 +45,9 @@ var GitHubBox = React.createClass({
 },
 
 	loadGitHubsFromServer: function(){
+	console.log("RIGHT BEFORE AJAX")
 	$.ajax({
-      url: this.props.url,
+      url: "/api/github/",
       dataType: 'json',
       cache: false,
       success: function(data) {
@@ -51,10 +67,7 @@ var GitHubBox = React.createClass({
 	render: function() {
         return (
         <div>
-          
-          <ul>
-            <GitHubList data={this.state.data}/>
-          </ul>
+          <GitHubList data={this.state.data}/>
         </div>
         );
     }

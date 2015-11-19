@@ -13,9 +13,9 @@ module.exports = {
     './client/blogForm'
     ],
 
-    index: [
+    blogList: [
     'webpack-hot-middleware/client',
-    './client/index'
+    './client/blogIndex'
     ]
   },
   output: {
