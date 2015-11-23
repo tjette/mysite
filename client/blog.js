@@ -19,6 +19,9 @@ var BlogList = React.createClass({
                 <div>
                   <h2>{blog.title}</h2>
                   <p>{blog.body}</p>
+                
+
+                
                   {commentData}
                   <BlogComment blogId={blog._id}/>
                </div>

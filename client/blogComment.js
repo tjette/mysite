@@ -2,21 +2,12 @@ var React = require('react');
 
 
 var BlogComment = React.createClass({
-
-	alertMe: function(e){
-		alert("hello");
-		e.preventDefault();
-	},
-
 	handleSubmit: function(e) {
 		console.log("handleSubmit fired")
 
 		e.preventDefault();
-		
-		
+		var body = this.refs.body.getDOMNode().value;
 		var blogId = this.props.blogId;
-		console.log(body, blogId)
-	
 		var data = ({body: body});
 
 
@@ -38,29 +29,21 @@ var BlogComment = React.createClass({
                     console.error( status, err.toString());
                 }.bind(this)
         });
-       
-	},
+    },
 
 	render: function() {
       return (
         <div>
-          <form> 
-            <div className="form-group">
-              <label>Blog Title</label>
-              <input type="text"  className="form-control" placeholder="Blog Title"/>
-            </div>
-
-            <div className="form-group">
-              <label>Blog Entry</label>
-              <textarea type="text" className="form-control" placeholder="Blog Entry"/>
-           </div>
-
-        <button type="submit" onClick={this.alertMe}  className="btn btn-primary">Submit</button>
-        </form>
+        	<form> 
+          		<div className="form-group">
+              		<label>Comment</label>
+              		<textarea type="text" ref="body" className="form-control" placeholder="Comment Entry"/>
+           		</div>
+					<button type="button" onClick={this.handleSubmit} className="btn btn-primary">Submit</button>
+        	</form>
         </div>
         );
     }
-
 });
 
 module.exports = BlogComment;
