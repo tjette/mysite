@@ -8,7 +8,7 @@ router.use(bodyParser.urlencoded({ extended: true }))
   router.route('/')
     .get(function(req,res){
       mongoose.model('Blog').find({})
-      .populate('comments')
+      .populate({ path:'comments', populate:{path:'user', select:'local.email'}})
       .exec(function(err, blog){
           if(err)
             res.send(err)
@@ -103,7 +103,9 @@ router.route('/:id/comment')
 router.route('/:id/comments')
  .get(function(req, res){
    mongoose.model('Blog').findById({_id: req.params.id})
-    .populate('comments').exec(function(err, comments){
+    .populate('comments')
+    .populate('user')
+    .exec(function(err, comments){
      if(err)
        res.send(err);
      res.send(comments);

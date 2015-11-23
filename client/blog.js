@@ -1,4 +1,5 @@
 var React = require('react');
+var prettydate = require('pretty-date');
 var BlogComment = require('./blogComment');
 
 var BlogList = React.createClass({
@@ -6,26 +7,38 @@ var BlogList = React.createClass({
     render: function() {
       var self=this;
       var blogData = this.props.data.map(function(blog){
-        if(blog.comments) {
+        // if(blog.comments) {
+
         var commentData = blog.comments.map(function(a){
+        var commentDate = prettydate.format(new Date(a.date))
+
+          if(a.user){
+            var user = a.user.local.email;
+          } else {
+            var user = "anonymous";
+          }
+          window.user = a.user;
+          window.comm = a.body;
           return (
-              <div>
-              {a.body}
+              <div className="comment-box">
+              <h6>{user}</h6>
+              <p>{commentDate}</p>
+              <p>{commentData}</p>
+              <p>{a.body}</p>
+
               </div>
           )
-        });
-      }
+        }).reverse();
+      
         return (
                 <div>
                   <h2>{blog.title}</h2>
                   <p>{blog.body}</p>
-                
-
-                
-                  {commentData}
+                  <p>{commentData}</p>
                   <BlogComment blogId={blog._id} onPost={self.props.newData}/>
                </div>
         )
+      
     });
 
         return (
