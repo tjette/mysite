@@ -10,7 +10,7 @@ var BlogList = React.createClass({
         // if(blog.comments) {
 
         var commentData = blog.comments.map(function(a){
-        var commentDate = prettydate.format(new Date(a.date))
+        var commentDate = prettydate.format(new Date(a.date)) 
 
           if(a.user){
             var user = a.user.local.email;
