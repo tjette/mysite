@@ -21,14 +21,17 @@ var BlogComment = React.createClass({
             data: data,
             type:'POST',
                 success: function(response){
+                	if(this.props.onPost){
+                		this.props.onPost()
+                	}
                 console.log("posting data!",data, response)
-                document.location='/blog.html'
                 }.bind(this),
                 error: function(xhr, status, err){
                     console.log("not posting data!")
                     console.error( status, err.toString());
                 }.bind(this)
-        });
+        })
+        this.refs.body.getDOMNode().value = ''
     },
 
 	render: function() {

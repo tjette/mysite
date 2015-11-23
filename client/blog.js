@@ -4,7 +4,7 @@ var BlogComment = require('./blogComment');
 var BlogList = React.createClass({
 
     render: function() {
-      
+      var self=this;
       var blogData = this.props.data.map(function(blog){
         if(blog.comments) {
         var commentData = blog.comments.map(function(a){
@@ -23,7 +23,7 @@ var BlogList = React.createClass({
 
                 
                   {commentData}
-                  <BlogComment blogId={blog._id}/>
+                  <BlogComment blogId={blog._id} onPost={self.props.newData}/>
                </div>
         )
     });
@@ -65,10 +65,14 @@ var BlogBox = React.createClass({
     this.loadBlogsFromServer();
   },
     render: function() {
+      var self=this;
+      var doRefresh = function(){
+        self.loadBlogsFromServer();
+      }
         return (
         <div>
           <ul>
-            <BlogList data={this.state.data}/>
+            <BlogList data={this.state.data} newData={doRefresh}/>
           </ul>
         </div>
         )
