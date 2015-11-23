@@ -4,6 +4,7 @@ var React = require('react');
 
 var BlogForm = React.createClass({
   handleSubmit: function(e) {
+    console.log("posting")
     e.preventDefault();
       
       var title = React.findDOMNode(this.refs.title).value.trim(); 
@@ -36,12 +37,12 @@ var BlogForm = React.createClass({
       return (
         <div>
           <form> 
-            <div className="form-group" method="POST">
+            <div className="form-group">
               <label>Blog Title</label>
               <input type="text" ref="title" className="form-control" placeholder="Blog Title"/>
             </div>
 
-            <div className="form-group" method="POST">
+            <div className="form-group">
               <label>Blog Entry</label>
               <textarea type="text" ref="body" className="form-control" placeholder="Blog Entry"/>
            </div>

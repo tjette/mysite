@@ -30,7 +30,7 @@ var GitHubList = React.createClass({
         )
     });
 		return(
-			<div className="col-md-4">
+			<div>
 			<span>{gitHubData}</span>
 			</div>
 		)

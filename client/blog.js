@@ -1,30 +1,46 @@
 var React = require('react');
+var BlogComment = require('./blogComment');
 
 var BlogList = React.createClass({
+
     render: function() {
+      
       var blogData = this.props.data.map(function(blog){
+        if(blog.comments) {
+        var commentData = blog.comments.map(function(a){
+          return (
+              <div>
+              {a.body}
+              </div>
+          )
+        });
+      }
         return (
                 <div>
                   <h2>{blog.title}</h2>
-                  <article>{blog.body}</article>
+                  <p>{blog.body}</p>
+                  {commentData}
+                  <BlogComment blogId={blog._id}/>
                </div>
         )
     });
 
         return (
                 <div>
-                   <article>{blogData}</article>
+                   <ul>
+                   {blogData}
+                   </ul>
          
                 </div>
         );
     }
 });
 
-
 var BlogBox = React.createClass({
   getInitialState: function() {
     return {data: []};
   },
+
 
   loadBlogsFromServer: function() {
     $.ajax({
@@ -48,12 +64,11 @@ var BlogBox = React.createClass({
     render: function() {
         return (
         <div>
-          
           <ul>
             <BlogList data={this.state.data}/>
           </ul>
         </div>
-        );
+        )
     }
 });
 
