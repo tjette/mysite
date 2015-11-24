@@ -1,6 +1,8 @@
 var React = require('react');
-var prettydate = require('pretty-date');
 var BlogComment = require('./blogComment');
+var prettydate = require('pretty-date');
+var md5 = require('MD5');
+
 
 var BlogList = React.createClass({
 
@@ -11,19 +13,22 @@ var BlogList = React.createClass({
 
         var commentData = blog.comments.map(function(a){
         var commentDate = prettydate.format(new Date(a.date)) 
+        var GRAVATAR_URL = "http://gravatar.com/avatar";
 
           if(a.user){
-            var user = a.user.local.email;
+            var email = a.user.local.email;
+            var hash = md5(email);
+            console.log(hash)
+            var url = GRAVATAR_URL + "/" + hash;
           } else {
-            var user = "anonymous";
+            var email = "Anonymous";
           }
           window.user = a.user;
           window.comm = a.body;
           return (
               <div className="comment-box">
-              <h6>{user}</h6>
+              <img src={url}/> {email}
               <p>{commentDate}</p>
-              <p>{commentData}</p>
               <p>{a.body}</p>
 
               </div>
@@ -34,6 +39,7 @@ var BlogList = React.createClass({
                 <div>
                   <h2>{blog.title}</h2>
                   <p>{blog.body}</p>
+                  <img src={blog.img}/>
                   <p>{commentData}</p>
                   <BlogComment blogId={blog._id} onPost={self.props.newData}/>
                </div>

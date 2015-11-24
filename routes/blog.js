@@ -20,9 +20,11 @@ router.use(bodyParser.urlencoded({ extended: true }))
   .post(function(req, res){
     var title = req.body.title;
     var body = req.body.body;
+    var img = req.body.img;
     mongoose.model('Blog').create({
       title: title,
-      body: body
+      body: body,
+      img: img
     }, function(err, blog){
       if(err){
         res.send("houston we have a problem")
@@ -54,6 +56,7 @@ router.route('/:id')
         console.log(req.body.title + " : " + req.body.body);
         blog.title = req.body.title;  // update the blog info
         blog.body = req.body.body;
+        blog.img = req.body.img;
           if (err)
             res.send(err);
     
@@ -80,9 +83,11 @@ router.route('/:id/comment')
     console.log("GOING INSIDE COMMENT POST")
     var body = req.body.body;
     var user = req.user;
+    var img = req.img;
         mongoose.model('Comment').create({
             body: body,
             user: user,
+            img: img,
             blog: req.params.id
         }, function(err, comment) {
             if (err)
