@@ -7,17 +7,21 @@ var WakaList = React.createClass({
 			
 				return(
 				<div>
-					<p>{b.name}</p>
+					<li>{b.name} - {b.percent}%</li>
+
 				</div>
 					)
 				})
 			
 		return(
         
-          <div>
-          	{languages}
-          </div>
-       		)
+        	
+        
+            <div className="well">
+            <h3> WakaTime Data</h3>
+            {languages}
+            </div>
+          	 )
 		});
 
 		return(
@@ -25,11 +29,8 @@ var WakaList = React.createClass({
 				<span>{wakaData}</span>	
 			</div>
 			)
-		
 	}
 });
-
-
 
 var WakaBox = React.createClass({
 	getInitialState: function(){

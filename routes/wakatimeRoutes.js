@@ -19,8 +19,8 @@ fetchWaka = function(req,res){
 	  		populateWaka(response);
 	  	}
 		var stats = wakaArray.map(function(waka){
-  			return {"languages": waka.data.data.languages, "name": waka.data.data.languages.name}
-      		console.log("languages", languages, "name", name);
+  			return {"languages": waka.data.data.languages}
+      		console.log("languages", languages);
       		
       	})
 	    	res.json(stats);
