@@ -15,11 +15,8 @@ module.exports = {
      blogList: [
     'webpack-hot-middleware/client',
     './client/blogIndex'
-    ],
-    wakaIndex:[
-    'webpack-hot-middleware/client',
-    './client/wakaIndex'
     ]
+    
   },
   output: {
     path: path.join(__dirname, 'static'),

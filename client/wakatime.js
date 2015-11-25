@@ -3,27 +3,33 @@ var React = require('react');
 var WakaList = React.createClass({
 	render: function(){
 		var wakaData = this.props.data.map(function(a){
+			var languages = a.languages.map(function(b){
 			
-      			return(
+				return(
 				<div>
-					<p>{a.user}</p>
+					<p>{b.name}</p>
 				</div>
-				)
+					)
+				})
 			
 		return(
         
-          <div className="panel panel-default">
-            <h3 className="panel-header">
-               {a.name}</h3>
-            <div className="panel-body">
-               {wakaData}
-            </div>
-            </div>
+          <div>
+          	{languages}
+          </div>
        		)
-			})
+		});
+
+		return(
+			<div>
+				<span>{wakaData}</span>	
+			</div>
+			)
 		
 	}
 });
+
+
 
 var WakaBox = React.createClass({
 	getInitialState: function(){
@@ -33,7 +39,7 @@ var WakaBox = React.createClass({
 },
 
 	loadWakaFromServer: function(){
-	console.log("WAKATIME!!!!")
+	console.log("wakatime");
 	$.ajax({
       url: "/api/wakatime/",
       dataType: 'json',
