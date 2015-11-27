@@ -9,13 +9,12 @@ var BlogForm = React.createClass({
       
       var title = React.findDOMNode(this.refs.title).value.trim(); 
       var body = React.findDOMNode(this.refs.body).value.trim();
-      var img = React.findDOMNode(this.refs.img).value.trim();
 
       if (!title){
         return;
       }
 
-    var data = ({title: title, body: body, img: img});
+    var data = ({title: title, body: body});
 
     $.ajax({
       url: this.props.url,
@@ -48,10 +47,6 @@ var BlogForm = React.createClass({
               <textarea type="text" ref="body" className="form-control" placeholder="Blog Entry"/>
            </div>
             
-            <div className="form-group">
-              <label>Blog Entry</label>
-              <textarea type="text" ref="img" className="form-control" placeholder="Blog Entry"/>
-           </div>
 
         <button onClick={this.handleSubmit} type="submit" className="btn btn-primary">Submit</button>
         </form>
