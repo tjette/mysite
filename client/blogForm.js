@@ -3,14 +3,14 @@ var React = require('react');
 
 
 var BlogForm = React.createClass({
-  handleSubmit: function(e) {
+  handleSubmit: function(e, user) {
     console.log("posting")
     e.preventDefault();
       
       var title = React.findDOMNode(this.refs.title).value.trim(); 
       var body = React.findDOMNode(this.refs.body).value.trim();
 
-      if (!title){
+      if (!body){
         return;
       }
 
@@ -23,7 +23,7 @@ var BlogForm = React.createClass({
       data: data,
       success: function(response) {
         console.log("inside success", data, response)
-        document.location='/blog.html'
+        document.location='/blog.ejs'
       }.bind(this),
       error:function(xhr, status, err) {
         console.log("broken url is " + this.props.url)
@@ -76,7 +76,7 @@ var Manage = React.createClass({
       type:'PUT',
       success: function(response){
         console.log("posting data!", data, response)
-        document.location='postblog.html'
+        document.location='postblog.ejs'
       }.bind(this),
       error: function(xhr, status, err){
         console.log("not posting data!")

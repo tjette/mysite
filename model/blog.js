@@ -6,6 +6,7 @@ var blogSchema = new mongoose.Schema({
 	img : String,
 	comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Comment'}],
 	date: { type: Date, default: Date.now }
+	
 });
 
 mongoose.model('Blog', blogSchema);

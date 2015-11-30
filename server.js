@@ -22,30 +22,6 @@ var commentModel = require('./model/comment');
 var git = require('./routes/gitHubRoutes');
 var fetchWaka = require('./routes/wakatimeRoutes');
 
-require('./config/passport')(passport); // pass passport for configuration
-
-// set up our express application
-app.use(morgan('dev')); // log every request to the console
-app.use(cookieParser()); // read cookies (needed for auth)
-app.use(bodyParser.json()); // get information from html forms
-app.use(bodyParser.urlencoded({ extended: true }));
-app.set('view engine', 'ejs'); // set up ejs for templating
-
-// required for passport
-app.use(express.static('public'));
-app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
-app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
-app.use(flash()); // use connect-flash for flash messages stored in session
-
-// routes ======================================================================
-require('./routes/userRoutes.js')(app, passport); 
-app.use('/api/blog', blogRoutes);
-app.use('/api/github', git);
-app.use('/api/wakatime', fetchWaka);
-app.get('/', function(req, res){
-    res.readFile('index.html')
-});
 
 if (process.env.NODE_ENV === 'production') {
   console.log('Running in production mode');
@@ -77,6 +53,29 @@ if (process.env.NODE_ENV === 'production') {
     });
   });
 }
+
+app.use(express.static('public'));
+app.set('view engine', 'ejs'); // set up ejs for templating
+
+// set up our express application
+app.use(morgan('dev')); // log every request to the console
+app.use(cookieParser()); // read cookies (needed for auth)
+app.use(bodyParser.json()); // get information from html forms
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use connect-flash for flash messages stored in session
+
+
+require('./config/passport')(passport); // pass passport for configuration
+// routes ======================================================================
+require('./routes/userRoutes.js')(app, passport);
+
+app.use('/api/blog', blogRoutes);
+app.use('/api/github', git);
+app.use('/api/wakatime', fetchWaka);
+
 
 
 var port = process.env.PORT || 8080;
