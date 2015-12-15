@@ -19,10 +19,6 @@ module.exports = function(app, passport) {
         res.redirect('/');
     });
 
-    app.get('/test', function(req, res) {
-            res.render('test.ejs')
-    });
-
     // AUTHENTICATE (FIRST LOGIN) ==================================================
 
     // LOGIN ===============================
@@ -36,8 +32,6 @@ module.exports = function(app, passport) {
         failureFlash : true // allow flash messages
     }));
 
-
-
     // process the login form
     app.post('/login', passport.authenticate('local-login', {
         successRedirect : '/', // redirect to the secure profile section
@@ -45,9 +39,7 @@ module.exports = function(app, passport) {
         failureFlash : true // allow flash messages
     }));
 
-
-
-    // SIGNUP =================================
+     // SIGNUP =================================
     app.get('/signup', function(req, res) {
         res.render('signup.ejs', { message: req.flash('signupMessage') });
     });
@@ -87,10 +79,6 @@ module.exports = function(app, passport) {
             });
         })
     });
-
-    
-
-
 
 };
 

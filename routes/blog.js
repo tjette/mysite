@@ -40,7 +40,9 @@ router.use(bodyParser.urlencoded({ extended: true }))
 router.route('/:id')
    .get(function(req, res) {
       mongoose.model('Blog').findById({
-        _id: req.params.id }).populate('comments').exec(function(err, blog) {
+        _id: req.params.id })
+      .populate('comments')
+      .exec(function(err, blog) {
           if (err)
             res.send(err);
     

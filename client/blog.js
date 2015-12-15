@@ -26,18 +26,23 @@ var BlogList = React.createClass({
           window.user = a.user;
           window.comm = a.body;
           return (
-              <div className="comment-box">
+              <div>
+              <div className='panel panel-primary'>
               <img src={url}/> {email}
-              <p>{commentDate}</p>
-              <p>{a.body}</p>
-
               </div>
+              <div className='panel-body'>
+              <p>{commentDate}</p>
+              
+              <p>{a.body}</p>
+              </div>
+              </div>
+              
           )
         }).reverse();
       
         return (
                 <div>
-                  <h2>{blog.title}</h2>
+                  <h2><span className="label label-success">{blog.title}</span></h2>
                   <p>{blog.body}</p>
                   <img src={blog.img}/>
                   <p>{commentData}</p>
