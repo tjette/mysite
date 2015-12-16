@@ -31,9 +31,9 @@ var BlogList = React.createClass({
               <img src={url}/> {email}
               </div>
               <div className='panel-body'>
-              <p>{commentDate}</p>
+              <p>Commented: {commentDate}</p>
               
-              <p>{a.body}</p>
+              <p>Comment: {a.body}</p>
               </div>
               </div>
               
