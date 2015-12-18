@@ -16,7 +16,7 @@ module.exports = {
     blogList: [
     'webpack-hot-middleware/client',
     './client/blogIndex'
-    ],
+    ]
     
   },
   output: {
