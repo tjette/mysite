@@ -5,15 +5,12 @@ module.exports = {
   devtool: 'source-map',
   entry: {
     bundle: [
-    'webpack-hot-middleware/client',
     './client/index'
     ],
     blogForm: [
-    'webpack-hot-middleware/client',
     './client/blogForm'
     ],
      blogList: [
-    'webpack-hot-middleware/client',
     './client/blogIndex'
     ]
     
