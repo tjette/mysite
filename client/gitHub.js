@@ -1,10 +1,12 @@
 var React = require('react');
-
+var prettydate = require('pretty-date');
 
 var GitHubList = React.createClass({
 	render: function(){
 	var gitHubData = this.props.data.map(function(git){
 		if(git.coms) {
+        var gitDate = prettydate.format(new Date(git.timeStamp));
+
 		var commitInfo = git.coms.map(function(c){
 			return(
 				<div>
@@ -23,7 +25,7 @@ var GitHubList = React.createClass({
                {commitInfo}
             </div>
             <div className="panel-footer">
-            <p> {git.timeStamp}</p>
+            <p> {gitDate}</p>
             </div>
             </div>
        
