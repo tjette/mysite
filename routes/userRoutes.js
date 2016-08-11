@@ -24,7 +24,12 @@ module.exports = function(app, passport) {
     // LOGIN ===============================
     app.get('/login', function(req, res) {
         res.render('login.ejs', { message: req.flash('loginMessage') });
+
     });
+
+    app.get('/about', function(req,res){
+        res.render('about.ejs');
+    })
 
    app.post('/login', passport.authenticate('local-login', {
         successRedirect : '/profile', // redirect to the secure profile section
@@ -62,13 +67,14 @@ module.exports = function(app, passport) {
     app.get('/blog', function(req, res) {
       res.render('blog.ejs', {
         user : req.user
-      });
+    });
+        
     });
 
     app.get('/postBlog', isLoggedIn, function(req, res) {
       res.render('postBlog.ejs', {
         user : req.user
-      });
+        });
     });
 
     app.get('/profile', isLoggedIn, function(req, res) {

@@ -7,7 +7,7 @@ router.use(bodyParser.urlencoded({ extended: true }))
 
   router.route('/')
     .get(function(req,res){
-      mongoose.model('Blog').find({})
+      mongoose.model('Blog').find({}).sort('-date')
       .populate({ path:'comments', populate:{path:'user', select:'local.email'}})
       .exec(function(err, blog){
           if(err)
