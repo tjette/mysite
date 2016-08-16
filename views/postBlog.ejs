@@ -13,8 +13,7 @@
     <div class="container">
 
       <div class="blog-header">
-        <h1 class="blog-title"> <%=user.local.email%> is your Blogging email</h1>
-       
+        <h1 class="blog-title"> <%=user.local.email%> is your Blogging email<i class="glyphicon glyphicon-pencil"></i></h1>
       </div>
 
       <div class="row">
@@ -45,18 +44,9 @@
             <h4>About</h4>
             <p>Blog Posts <em></em> </p>
           </div>
+         
           <div class="sidebar-module">
-            <h4>Archives</h4>
-            <ol class="list-unstyled">
-              <li><a href="#">September 2015</a></li>
-              <li><a href="#">October 2015</a></li>
-              <li><a href="#">November 2015</a></li>
-              <li><a href="#">December 2015</a></li>
-       
-            </ol>
-          </div>
-          <div class="sidebar-module">
-            <h4>Elsewhere</h4>
+            <h4><%=user.firstName%></h4>
             <ol class="list-unstyled">
               <li><a href="https://github.com/tjette"><i class="fa fa-git fa-4x"></i></a></li>
                <li><a href="https://twitter.com/travisjette"><i class="fa fa-twitter fa-4x"></i></a></li>

@@ -29,7 +29,13 @@ module.exports = function(app, passport) {
 
     app.get('/about', function(req,res){
         res.render('about.ejs');
-    })
+    });
+
+    app.get('/projects', function(req,res){
+        res.render('projects.ejs');
+    });
+
+
 
    app.post('/login', passport.authenticate('local-login', {
         successRedirect : '/profile', // redirect to the secure profile section
@@ -38,11 +44,6 @@ module.exports = function(app, passport) {
     }));
 
     // process the login form
-    app.post('/login', passport.authenticate('local-login', {
-        successRedirect : '/', // redirect to the secure profile section
-        failureRedirect : '/login', // redirect back to the signup page if there is an error
-        failureFlash : true // allow flash messages
-    }));
 
      // SIGNUP =================================
     app.get('/signup', function(req, res) {
@@ -90,8 +91,8 @@ module.exports = function(app, passport) {
 
 // route middleware to ensure user is logged in
 function isLoggedIn(req, res, next) {
-    if (req.isAuthenticated())
-        return next();
-    res.redirect('/');
+    if (req.isAuthenticated()) 
+        return next(); 
+        res.redirect('/');
 }
 
