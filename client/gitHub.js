@@ -20,12 +20,12 @@ var GitHubList = React.createClass({
         
           <div className="panel panel-default gitub-box">
             <h3 className="panel-header"><i className="fa fa-code-fork">
-              </i> {git.name}</h3>
+              </i> Git Hub Commit:{git.name}</h3>
             <div className="panel-body">
-               {commitInfo}
+               Commit Info:{commitInfo}
             </div>
             <div className="panel-footer">
-            <p> {gitDate}</p>
+            <p> Commit Date:{gitDate}</p>
             </div>
             </div>
        

@@ -17,9 +17,9 @@ var WakaList = React.createClass({
         
         	
         
-            <div className="well">
+            <div className="panel panel-default">
             <h3> WakaTime Data</h3>
-            {languages}
+            <span>{languages}</span>
             </div>
           	 )
 		});

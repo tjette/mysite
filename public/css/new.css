@@ -12,13 +12,67 @@ body {
     line-height: 1.42857143;
     color: #333;
     background-color: #9E9E9E;
-     }
+    background: ir;
+    background: url(/images/reflection.jpg)! ant;
+    min-height: 100vh;
+    background-size: cover!important;
+    background-repeat: no-repeat!important;
+    background-attachment: fixed!important;
+    background: url(/images/hollandLakeFalls.jpg);
+}
+
+.flexContainer{
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+.flexItem{
+  align-items: center;
+  align-content: center;
+  width: 50%;
+}
+.homeImages{
+  display: flex;
+  align-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+}
+.individualImages{
+  align-items: center;
+  align-content: center;
+  width:33%;
+  margin:0px auto;
+}
+.jumbotron.homeImages {
+    background: transparent;
+}
+h3.gitHub {
+    text-align: center;
+    background-color: tan;
+}
 
 .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: normal;
     color: #333;
     margin-top: 30px;
+}
+img.juneBug {
+    vertical-align: middle;
+    width: 300px;
+    height: 250px;
+    -ms-transform: rotate(7deg);
+    -webkit-transform: rotate(7deg);
+    transform: rotate(90deg);
+}
+img.hugeBull {
+    width: 250px;
+    height:250px;
+}
+img.missionHike {
+    width: 350px;
+    height: 250px
 }
 
 
@@ -224,12 +278,13 @@ h3.panel-title.about {
  */
 
 .blog-footer {
-  padding: 40px 0;
-  color: black;
-  text-align: center;
-  background-color: #f9f9f9;
-  border-top: 1px solid #e5e5e5;
-}
+    padding: 0px 0;
+    color: black;
+    text-align: center;
+    background-color: tan;
+    opacity: .9;
+    border-top: 0px solid 
+  }
 .blog-footer p:last-child {
   margin-bottom: 0;
 }
