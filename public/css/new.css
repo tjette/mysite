@@ -74,6 +74,9 @@ img.missionHike {
     width: 350px;
     height: 250px
 }
+.navbar.navbar-default.navbar-static-top {
+    background-color: tan;
+}
 
 
 /*
