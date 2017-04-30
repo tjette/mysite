@@ -201,6 +201,7 @@ img.missionHike {
 .blog-main {
   font-size: 18px;
   line-height: 1.5;
+  background-color: white;
 }
 .blogs {
   padding: 10px;
@@ -210,6 +211,7 @@ img.missionHike {
 .sidebar-module {
   padding: 15px;
   margin: 0 -15px 15px;
+  background-color:white;
 }
 .sidebar-module-inset {
   padding: 15px;
